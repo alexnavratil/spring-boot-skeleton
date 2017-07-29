@@ -3,7 +3,10 @@ package at.alexnavratil.skeleton.controllers;
 import at.alexnavratil.skeleton.models.Person;
 import at.alexnavratil.skeleton.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -13,17 +16,17 @@ public class PersonController {
     private PersonRepository personRepository;
 
     @Autowired
-    public PersonController(PersonRepository personRepository){
+    public PersonController(PersonRepository personRepository) {
         this.personRepository = personRepository;
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public List<Person> index(){
+    public List<Person> index() {
         return personRepository.findAll();
     }
 
     @RequestMapping(value = "", method = RequestMethod.PUT)
-    public Person add(@RequestBody Person addPerson){
+    public Person add(@RequestBody Person addPerson) {
         return personRepository.save(addPerson);
     }
 }

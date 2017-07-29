@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "system-uuid")
-    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    @GenericGenerator(name = "system-uuid", strategy = "uuid")
     private String id;
 
     @Column
@@ -17,7 +17,8 @@ public class Person {
     @Column
     private String surename;
 
-    public Person(){}
+    public Person() {
+    }
 
     public Person(String firstname, String surename) {
         this.firstname = firstname;
